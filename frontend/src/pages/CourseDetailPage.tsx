@@ -57,7 +57,7 @@ const CourseDetailPage = () => {
         setDetail(resp);
         setActiveImage(0);
         if (resp.contentUrl) {
-          const allowAnonymous = resp.visible === "public";
+          const allowAnonymous = resp.visible?.toUpperCase() === "PUBLIC";
           if (allowAnonymous || !!tokens?.accessToken) {
             try {
               const text = await fetch(resp.contentUrl, { credentials: "omit" }).then(r => {
