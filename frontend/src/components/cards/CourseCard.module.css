@@ -113,13 +113,14 @@
   color: var(--green);
 }
 
-/* Tags */
+/* Tags — fixed between body and footer, never scrolls */
 .tagGroups {
   display: flex;
   flex-wrap: nowrap;
   gap: 5px;
   overflow: hidden;
   flex-shrink: 0;
+  padding: 0 20px 10px;
 }
 
 /* Footer — always visible, pinned to bottom */
