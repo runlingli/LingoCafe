@@ -191,7 +191,7 @@ const CourseCard = ({
         </div>
       ) : null}
 
-      <div className={styles.content}>
+      <div className={styles.body}>
         <h3 className={styles.title}>{title}</h3>
         {summary.trim() ? (
           <p className={styles.description}>{renderEmHighlightedText(summary)}</p>
@@ -205,42 +205,25 @@ const CourseCard = ({
         ) : null}
       </div>
 
-      <div className={styles.meta}>
+      <div className={styles.footer}>
         <div className={styles.teacher}>
-          {teacher.avatarUrl ? (
-            <img className={styles.teacherAvatarImg} src={teacher.avatarUrl} alt={teacher.name} />
-          ) : (
-            <div className={styles.teacherAvatar}>{teacher.avatarText ?? (teacher.name?.charAt(0) || "?")}</div>
-          )}
+          <div className={styles.avatarWrap}>
+            {teacher.avatarUrl ? (
+              <img src={teacher.avatarUrl} alt={teacher.name} />
+            ) : (
+              <span className={styles.avatarFallback}>
+                {teacher.avatarText ?? (teacher.name?.charAt(0) || "?")}
+              </span>
+            )}
+          </div>
           <div className={styles.teacherInfo}>
             <span className={styles.teacherName}>{teacher.name}</span>
-            {authorTags?.length ? (
-              <div className={styles.authorTags}>
-                {authorTags.map(tag => (
-                  <span key={tag} className={styles.authorTag}>#{tag}</span>
-                ))}
-              </div>
-            ) : null}
           </div>
         </div>
-        {footerExtra ? null : (
-          <div className={styles.stats}>
-            {stats ? (
-              <>
-                <span className={styles.statItem}>
-                  <HeartIcon width={16} height={16} strokeWidth={1.6} />
-                  {stats.likes}
-                </span>
-                <span className={styles.statItem}><EyeIcon width={16} height={16} strokeWidth={1.6} />{stats.views}</span>
-              </>
-            ) : null}
-          </div>
-        )}
+        {footerExtra ? (
+          <div className={styles.footerExtra}>{footerExtra}</div>
+        ) : null}
       </div>
-
-      {footerExtra ? (
-        <div className={styles.footerExtra}>{footerExtra}</div>
-      ) : null}
     </>
   );
 
