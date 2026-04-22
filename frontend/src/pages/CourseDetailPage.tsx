@@ -269,9 +269,11 @@ const CourseDetailPage = () => {
                 >
                   {contentText}
                 </ReactMarkdown>
-              ) : (
-                "No content"
-              )}
+              ) : detail?.description ? (
+                <p style={{ fontFamily: "var(--sans)", fontSize: 16, lineHeight: 1.8, color: "var(--ink-2)" }}>
+                  {detail.description}
+                </p>
+              ) : null}
             </div>
             {contentError ? (
               <div style={{ color: "var(--color-danger)" }}>{contentError} {detail?.contentUrl ? (<a href={detail.contentUrl} target="_blank" rel="noreferrer">View source</a>) : null}</div>
