@@ -114,7 +114,7 @@ public class AuthService {
                 .phone(request.identifierType() == IdentifierType.PHONE ? identifier : null)
                 .email(request.identifierType() == IdentifierType.EMAIL ? identifier : null)
                 .nickname(nickname)
-                .avatar("https://api.dicebear.com/9.x/initials/svg?seed=" + nickname)
+                .avatar("https://api.dicebear.com/9.x/thumbs/svg?seed=" + nickname + "&backgroundColor=transparent")
                 .bio(null)
                 .tagsJson("[]")
                 .build();

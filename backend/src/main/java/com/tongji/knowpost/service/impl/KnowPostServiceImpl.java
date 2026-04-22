@@ -366,17 +366,17 @@ public class KnowPostServiceImpl implements KnowPostService {
             if (row == null || "deleted".equals(row.getStatus())) {
                 redis.opsForValue().set(pageKey, "NULL", java.time.Duration.ofSeconds(30 + java.util.concurrent.ThreadLocalRandom.current().nextInt(31)));
                 singleFlight.remove(pageKey);
-                throw new BusinessException(ErrorCode.BAD_REQUEST, "内容不存在");
+                throw new BusinessException(ErrorCode.BAD_REQUEST, "Post not found");
             }
 
             // 7. 权限校验
             // 公开策略：状态为 published 且可见性为 public 的内容可直接访问
             // 私有策略：否则仅作者本人可见
-            boolean isPublic = "published".equals(row.getStatus()) && "public".equals(row.getVisible());
+            boolean isPublic = "published".equals(row.getStatus()) && "public".equalsIgnoreCase(row.getVisible());
             boolean isOwner = currentUserIdNullable != null && row.getCreatorId() != null && currentUserIdNullable.equals(row.getCreatorId());
             if (!isPublic && !isOwner) {
                 singleFlight.remove(pageKey);
-                throw new BusinessException(ErrorCode.BAD_REQUEST, "无权限查看");
+                throw new BusinessException(ErrorCode.BAD_REQUEST, "This post is private or does not exist");
             }
 
             // 8. 组装响应对象

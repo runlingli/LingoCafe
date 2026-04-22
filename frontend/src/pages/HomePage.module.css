@@ -1,18 +1,22 @@
-/* HomePage — masonry grid, clean neutral */
+/* HomePage — fixed grid */
 
 .heroRow {
   margin-bottom: 28px;
 }
 
 .masonry {
-  column-count: 4;
-  column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .masonryItem {
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  margin-bottom: 20px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.masonryItem > * {
+  height: 100%;
 }
 
 .heroCard {
@@ -21,23 +25,19 @@
 
 @media (max-width: 1300px) {
   .masonry {
-    column-count: 3;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 1000px) {
   .masonry {
-    column-count: 2;
-    column-gap: 16px;
-  }
-
-  .masonryItem {
-    margin-bottom: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 
 @media (max-width: 700px) {
   .masonry {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 }
