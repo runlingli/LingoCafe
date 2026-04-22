@@ -1,0 +1,267 @@
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  width: fit-content;
+}
+
+.tabButton {
+  padding: 8px 18px;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.tabButton:hover,
+.tabButton:active {
+  color: var(--ink);
+  background: #fff;
+}
+
+.tabActive {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  font-weight: 600;
+}
+
+.card {
+  padding: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fieldGroup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.input,
+.textarea {
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--green);
+}
+
+.textarea {
+  min-height: 120px;
+}
+
+/* profile header avatar */
+.avatarLarge {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 700;
+  border: 2px solid var(--rule);
+  overflow: hidden;
+}
+
+/* read-only profile layout */
+.profileGrid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.avatarBox {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 700;
+  border: 2px solid var(--rule);
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nickname {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.bioBlock {
+  margin-top: 12px;
+  color: var(--ink-2);
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+/* content list */
+.contentList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contentItem {
+  padding: 20px 24px;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  transition: border-color 0.15s ease;
+}
+
+.contentItem:hover {
+  border-color: var(--green);
+}
+
+.contentMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contentTitle {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.contentTitle:hover {
+  color: var(--green);
+}
+
+.contentStats {
+  display: flex;
+  gap: 14px;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 12px;
+}
+
+.contentActions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.smallButton {
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.smallButton:hover,
+.smallButton:active {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.danger {
+  color: oklch(50% 0.18 25);
+  border-color: oklch(80% 0.1 25);
+}
+
+.danger:hover,
+.danger:active {
+  color: oklch(45% 0.18 25);
+  border-color: oklch(50% 0.18 25);
+  background: oklch(97% 0.02 25);
+}
+
+@media (max-width: 900px) {
+  .fieldGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .contentItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

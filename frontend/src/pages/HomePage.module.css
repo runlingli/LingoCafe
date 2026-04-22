@@ -1,0 +1,43 @@
+/* HomePage — masonry grid, clean neutral */
+
+.heroRow {
+  margin-bottom: 28px;
+}
+
+.masonry {
+  column-count: 4;
+  column-gap: 20px;
+}
+
+.masonryItem {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  margin-bottom: 20px;
+}
+
+.heroCard {
+  width: 100%;
+}
+
+@media (max-width: 1300px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 1000px) {
+  .masonry {
+    column-count: 2;
+    column-gap: 16px;
+  }
+
+  .masonryItem {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .masonry {
+    column-count: 1;
+  }
+}

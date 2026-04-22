@@ -1,0 +1,146 @@
+/* Sidebar — slim vertical editorial bar */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 24px 0 20px;
+  background: var(--surface);
+  border-right: 1px solid var(--rule);
+  width: var(--sidebar-width);
+}
+
+/* Logo mark */
+.logo {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 0 10px;
+  flex: 1;
+}
+
+.link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 4px 8px;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: color 150ms, background 150ms;
+  text-align: center;
+}
+
+.link svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.linkActive,
+.link:hover,
+.link:active {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.divider {
+  width: calc(100% - 20px);
+  height: 1px;
+  background: var(--rule);
+  margin: 12px 0;
+  flex-shrink: 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--ink-4);
+  font-family: var(--sans);
+  font-size: 11px;
+  text-align: center;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+.footer span {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+/* Mobile — horizontal bar */
+@media (max-width: 900px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .logo {
+    margin-bottom: 0;
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4px;
+    padding: 0;
+    flex: 0 0 auto;
+  }
+
+  .link {
+    flex-direction: row;
+    gap: 6px;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .divider,
+  .footer {
+    display: none;
+  }
+}

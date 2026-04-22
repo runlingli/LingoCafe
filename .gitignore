@@ -1,0 +1,38 @@
+# ===== SECRETS & CREDENTIALS =====
+backend/src/main/resources/application.yml
+backend/src/main/resources/application-*.yml
+backend/src/main/resources/keys/
+.env
+.env.*
+*.pem
+*.p12
+*.jks
+
+# ===== JAVA / MAVEN =====
+backend/target/
+*.class
+*.jar
+*.war
+
+# ===== FRONTEND =====
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.iml
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== LOGS =====
+*.log
+logs/
+
+# ===== DOCKER VOLUMES =====
+mysql_data/
+es_data/

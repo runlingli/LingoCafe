@@ -1,0 +1,291 @@
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 28px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fieldHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-3);
+}
+
+/* inline toggle switch */
+.inlineSwitch {
+  position: relative;
+  width: 38px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--rule);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.inlineSwitch::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.inlineSwitchOn {
+  background: var(--green);
+}
+
+.inlineSwitchOn::after {
+  left: 21px;
+}
+
+.label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.input,
+.select,
+.textarea {
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 10px 14px;
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+  resize: vertical;
+  min-height: 44px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--green);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--ink-4);
+}
+
+/* custom select arrow */
+.select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 13px;
+  padding-right: 32px;
+}
+
+.textarea {
+  min-height: 160px;
+}
+
+.uploadBox {
+  border-radius: 5px;
+  background: var(--surface);
+  border: 2px dashed var(--rule);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.uploadBox:hover,
+.uploadBox:active {
+  border-color: var(--green);
+  background: var(--green-soft);
+}
+
+.fileInputHidden { display: none; }
+
+.thumbGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+
+.switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  border-radius: 13px;
+  background: var(--rule);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.switchOn {
+  background: var(--green);
+}
+
+.switchOn::after {
+  left: 25px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit {
+  padding: 11px 28px;
+  border: none;
+  border-radius: 5px;
+  background: var(--green);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.submit:hover,
+.submit:active {
+  opacity: 0.88;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.error {
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: oklch(50% 0.18 25);
+}
+
+.success {
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--green);
+}
+
+.muted {
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 12px;
+}
+
+.charCount {
+  margin-top: -4px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-3);
+  text-align: right;
+}
+
+.charCountOver {
+  margin-top: -4px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: oklch(50% 0.18 25);
+  text-align: right;
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.previewOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.previewImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 6px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 900px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .thumbGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

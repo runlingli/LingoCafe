@@ -1,0 +1,166 @@
+.pageCard {
+  padding: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+}
+
+.avatarPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.avatarPreview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 700;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid var(--rule);
+  transition: border-color 0.15s ease;
+}
+
+.avatarPreview:hover,
+.avatarPreview:active {
+  border-color: var(--green);
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fieldGroup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.input,
+.select,
+.textarea {
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--green);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--ink-4);
+}
+
+.input {
+  height: 42px;
+  box-sizing: border-box;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* save button — green */
+.actions button[type="submit"],
+.actions .saveButton {
+  padding: 9px 22px;
+  border: none;
+  border-radius: 5px;
+  background: var(--green);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.actions button[type="submit"]:hover,
+.actions button[type="submit"]:active,
+.actions .saveButton:hover,
+.actions .saveButton:active {
+  opacity: 0.88;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldGroup {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* override global Select component for consistent height */
+.selectCompact :global(.box) {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  height: 42px !important;
+  box-sizing: border-box;
+}
+
+.errorMessage {
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: oklch(50% 0.18 25);
+}
+
+.selectCompact :global(.label) {
+  margin-bottom: 0;
+}

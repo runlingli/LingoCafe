@@ -1,0 +1,45 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover,
+.btn:active {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.following {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.following:hover,
+.following:active {
+  background: oklch(35% 0.13 155);
+  border-color: oklch(35% 0.13 155);
+  color: #fff;
+}
+
+.mutualBadge {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+}

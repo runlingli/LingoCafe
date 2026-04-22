@@ -1,0 +1,52 @@
+/* AppLayout — the column to the right of the sidebar */
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 32px 40px 48px 32px;
+  background: var(--bg);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Pages that render without a card wrapper */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Pages wrapped in a card surface */
+.pageCard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--rule);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 24px 28px 40px 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 16px 16px 32px;
+  }
+
+  .pageCard {
+    padding: 20px;
+  }
+}

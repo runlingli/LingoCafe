@@ -1,0 +1,145 @@
+/* MainHeader — clean editorial header, no gradients */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 0 0 0;
+  background: transparent;
+}
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 20px;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.headline {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.extras {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+/* Tab row — text tabs with green underline */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 0;
+}
+
+.tab {
+  padding: 10px 18px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 150ms, border-color 150ms;
+}
+
+.tab:hover,
+.tab:active {
+  color: var(--ink);
+}
+
+.tabActive {
+  color: var(--green);
+  border-bottom-color: var(--green);
+  font-weight: 600;
+}
+
+/* Filter row */
+.filters {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-top: 16px;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 150ms, color 150ms, background 150ms;
+}
+
+.filterButton:hover,
+.filterButton:active {
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.filterButtonActive {
+  border-color: var(--green);
+  background: var(--green-soft);
+  color: var(--green);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .headline {
+    font-size: 22px;
+  }
+
+  .extras {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 0;
+  }
+
+  .tab {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}

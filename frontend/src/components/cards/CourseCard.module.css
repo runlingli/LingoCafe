@@ -1,0 +1,322 @@
+/* CourseCard — clean editorial card */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-card);
+  min-height: 240px;
+  overflow: hidden;
+  transition: border-color 150ms;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+.card:hover,
+.card:active {
+  border-color: var(--ink-3);
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+  color: inherit;
+  padding: 20px;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+
+/* Cover image */
+.coverWrap {
+  position: relative;
+  margin: -20px -20px 16px;
+}
+
+.cover {
+  width: 100%;
+  border-radius: 0;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Top badge — pinned indicator */
+.topBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.topBadge span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--green);
+  color: #fff;
+}
+
+/* Card content area */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+.description {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+.description em {
+  font-style: normal;
+  background: var(--green-soft);
+  border-radius: 3px;
+  padding: 0 2px;
+  color: var(--green);
+}
+
+/* Tags */
+.tagGroups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+/* Meta row — divider + author + stats */
+.meta {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.teacher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.teacherAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--green-soft);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  flex-shrink: 0;
+  border: 1px solid var(--rule);
+}
+
+.teacherAvatarImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  border: 1px solid var(--rule);
+}
+
+.teacherInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-3);
+  min-width: 0;
+}
+
+.teacherName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.authorTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.authorTag {
+  font-size: 11px;
+  color: var(--ink-4);
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-4);
+  flex-shrink: 0;
+}
+
+.statItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Footer extra slot */
+.footerExtra {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule-soft);
+  margin-top: 4px;
+}
+
+/* Context menu button — top-right corner */
+.menuButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--ink-4);
+  cursor: pointer;
+  z-index: 5;
+  border: none;
+  outline: none;
+  transition: background 150ms, color 150ms;
+}
+
+.menuButton:hover,
+.menuButton:active {
+  background: var(--rule);
+  color: var(--ink-2);
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 1px;
+}
+
+/* Dropdown menu */
+.menuList {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  min-width: 152px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px oklch(0% 0 0 / 0.08);
+  border: 1px solid var(--rule);
+  padding: 4px;
+  z-index: 10;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-2);
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms;
+}
+
+.menuItem:hover,
+.menuItem:active {
+  background: var(--rule-soft);
+}
+
+.menuDanger {
+  color: oklch(40% 0.16 25);
+}
+
+.menuDanger:hover,
+.menuDanger:active {
+  background: oklch(96% 0.02 25);
+  color: oklch(38% 0.18 25);
+}
+
+/* Horizontal variant */
+.variantHorizontal {
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: stretch;
+}
+
+.variantHorizontalText {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Play badge for video content */
+.playBadge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: oklch(99.5% 0.004 65 / 0.92);
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  border: 1px solid var(--rule);
+}
+
+@media (max-width: 1100px) {
+  .variantHorizontal {
+    grid-template-columns: 1fr;
+  }
+}

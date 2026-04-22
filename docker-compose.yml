@@ -3,7 +3,7 @@ services:
     image: mysql:8.0
     container_name: insighthub-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: insighthub123
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: insighthub
     ports:
       - "3306:3306"
@@ -30,7 +30,7 @@ services:
       KAFKA_NODE_ID: "1"
       KAFKA_PROCESS_ROLES: broker,controller
       KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
@@ -46,11 +46,38 @@ services:
     environment:
       discovery.type: single-node
       xpack.security.enabled: "false"
-      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+      ES_JAVA_OPTS: "-Xms256m -Xmx256m"
     ports:
       - "9200:9200"
     volumes:
       - es_data:/usr/share/elasticsearch/data
+
+  backend:
+    build: ./backend
+    container_name: insighthub-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      kafka:
+        condition: service_started
+      elasticsearch:
+        condition: service_started
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: insighthub-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
 
 volumes:
   mysql_data:
