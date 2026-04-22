@@ -19,6 +19,7 @@
 
 .masonryItem {
   height: 280px;
+  min-width: 0;
 }
 
 @media (max-width: 1300px) {

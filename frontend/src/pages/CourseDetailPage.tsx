@@ -270,9 +270,11 @@ const CourseDetailPage = () => {
                   {contentText}
                 </ReactMarkdown>
               ) : detail?.description ? (
-                <p style={{ fontFamily: "var(--sans)", fontSize: 16, lineHeight: 1.8, color: "var(--ink-2)" }}>
-                  {detail.description}
-                </p>
+                <div style={{ fontFamily: "var(--sans)", fontSize: 16, lineHeight: 1.8, color: "var(--ink-2)", display: "flex", flexDirection: "column", gap: 16 }}>
+                  {detail.description.split(/\n+/).map((para, i) => (
+                    <p key={i} style={{ margin: 0 }}>{para}</p>
+                  ))}
+                </div>
               ) : null}
             </div>
             {contentError ? (

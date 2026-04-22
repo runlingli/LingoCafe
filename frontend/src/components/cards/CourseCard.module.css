@@ -66,15 +66,20 @@
   color: #fff;
 }
 
-/* Scrollable content body — clips on overflow */
+/* Scrollable content body */
 .body {
   flex: 1;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
   padding: 20px 20px 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  scrollbar-width: none;
+}
+
+.body::-webkit-scrollbar {
+  display: none;
 }
 
 /* Title */
@@ -98,11 +103,6 @@
   font-size: 12.5px;
   color: var(--ink-3);
   line-height: 1.65;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  flex-shrink: 0;
 }
 
 .description em {
@@ -155,9 +155,9 @@
 }
 
 .avatarWrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
   display: block;
 }
 
