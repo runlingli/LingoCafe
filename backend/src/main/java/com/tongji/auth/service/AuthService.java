@@ -109,11 +109,12 @@ public class AuthService {
         }
         ensureVerificationSuccess(verificationService.verify(VerificationScene.REGISTER, identifier, request.code()));
 
+        String nickname = generateNickname();
         User user = User.builder()
                 .phone(request.identifierType() == IdentifierType.PHONE ? identifier : null)
                 .email(request.identifierType() == IdentifierType.EMAIL ? identifier : null)
-                .nickname(generateNickname())
-                .avatar("https://static.zhiguang.cn/default-avatar.png")
+                .nickname(nickname)
+                .avatar("https://api.dicebear.com/9.x/initials/svg?seed=" + nickname)
                 .bio(null)
                 .tagsJson("[]")
                 .build();
