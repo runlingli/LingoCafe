@@ -59,6 +59,11 @@ services:
       - "8080:8080"
     env_file:
       - .env
+    volumes:
+      - ./backend/src/main/resources/application.yml:/app/config/application.yml:ro
+      - ./backend/src/main/resources/keys:/app/config/keys:ro
+    environment:
+      SPRING_CONFIG_LOCATION: file:/app/config/application.yml
     depends_on:
       mysql:
         condition: service_healthy
