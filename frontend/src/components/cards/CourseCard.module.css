@@ -154,19 +154,10 @@
   justify-content: center;
 }
 
-.avatarWrap img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  display: block;
-}
-
-.avatarFallback {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 600;
+.avatarIcon {
+  width: 16px;
+  height: 16px;
   color: var(--green);
-  line-height: 1;
 }
 
 .teacherName {

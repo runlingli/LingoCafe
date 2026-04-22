@@ -208,13 +208,10 @@ const CourseCard = ({
       <div className={styles.footer}>
         <div className={styles.teacher}>
           <div className={styles.avatarWrap}>
-            {teacher.avatarUrl ? (
-              <img src={teacher.avatarUrl} alt={teacher.name} />
-            ) : (
-              <span className={styles.avatarFallback}>
-                {teacher.avatarText ?? (teacher.name?.charAt(0) || "?")}
-              </span>
-            )}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={styles.avatarIcon}>
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+            </svg>
           </div>
           <div className={styles.teacherInfo}>
             <span className={styles.teacherName}>{teacher.name}</span>
