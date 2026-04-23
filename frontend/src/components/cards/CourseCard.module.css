@@ -66,9 +66,11 @@
   color: #fff;
 }
 
-/* Description body — fixed, never scrolls */
+/* Description body — grows to fill space, description inside is clamped */
 .body {
-  flex-shrink: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
   padding: 8px 20px 0;
 }
 
@@ -85,7 +87,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex-shrink: 0;
-  padding: 20px 20px 0;
+  padding: 14px 20px 0;
 }
 
 /* Description — 3-line clamp */

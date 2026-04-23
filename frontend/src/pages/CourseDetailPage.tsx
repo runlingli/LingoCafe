@@ -217,7 +217,6 @@ const CourseDetailPage = () => {
           </div>
         ) : null}
         <div className={styles.titleBlock}>
-          <div className={styles.titleRow}></div>
           <div className={styles.meta}>
             {detail?.authorAvatar ? (
               <img className={styles.authorAvatar} src={detail.authorAvatar} alt={detail.authorNickname} />
