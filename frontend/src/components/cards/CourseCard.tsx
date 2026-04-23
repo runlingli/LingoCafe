@@ -191,20 +191,21 @@ const CourseCard = ({
         </div>
       ) : null}
 
-      <div className={styles.body}>
+      <div className={styles.contentArea}>
         <h3 className={styles.title}>{title}</h3>
-        {summary.trim() ? (
-          <p className={styles.description}>{renderEmHighlightedText(summary)}</p>
+        <div className={styles.body}>
+          {summary.trim() ? (
+            <p className={styles.description}>{renderEmHighlightedText(summary)}</p>
+          ) : null}
+        </div>
+        {tags?.length ? (
+          <div className={styles.tagGroups}>
+            {tags.map(tag => (
+              <Tag key={tag}>#{tag}</Tag>
+            ))}
+          </div>
         ) : null}
       </div>
-
-      {tags?.length ? (
-        <div className={styles.tagGroups}>
-          {tags.map(tag => (
-            <Tag key={tag}>#{tag}</Tag>
-          ))}
-        </div>
-      ) : null}
 
       <div className={styles.footer}>
         <div className={styles.teacher}>

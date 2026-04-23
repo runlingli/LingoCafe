@@ -66,15 +66,25 @@
   color: #fff;
 }
 
-/* Description body — grows to fill space, description inside is clamped */
+/* Shared horizontal padding wrapper — title, body, tags all inherit same left edge */
+.contentArea {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+/* Description body — grows to fill space */
 .body {
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 8px 20px 0;
+  padding-top: 8px;
 }
 
-/* Title — fixed, never scrolls */
+/* Title */
 .title {
   font-family: var(--serif);
   font-size: 16px;
@@ -88,7 +98,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex-shrink: 0;
-  padding: 14px 20px 0;
+  padding-top: 14px;
 }
 
 /* Description — 3-line clamp */
@@ -111,7 +121,7 @@
   color: var(--green);
 }
 
-/* Tags — fixed, horizontal scroll hidden */
+/* Tags — horizontal scroll with right fade */
 .tagGroups {
   display: flex;
   flex-wrap: nowrap;
@@ -119,8 +129,11 @@
   overflow-x: auto;
   overflow-y: hidden;
   flex-shrink: 0;
-  padding: 8px 20px 10px;
+  padding-top: 8px;
+  padding-bottom: 10px;
   scrollbar-width: none;
+  mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
 }
 
 .tagGroups::-webkit-scrollbar {
