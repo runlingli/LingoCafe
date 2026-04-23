@@ -47,10 +47,12 @@ const MainHeader = ({ headline, subtitle, tabs, filters, rightSlot, children, us
   return (
     <header className={styles.header}>
       <div className={styles.topRow}>
-        <div className={styles.titles}>
-          <h1 className={styles.headline}>{headline}</h1>
-          {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
-        </div>
+        {headline ? (
+          <div className={styles.titles}>
+            <h1 className={styles.headline}>{headline}</h1>
+            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+          </div>
+        ) : null}
         <div className={styles.extras}>
           {rightSlot}
           {user ? <UserBadge name={user.name} alias={user.alias} avatarUrl={user.avatarUrl} /> : null}

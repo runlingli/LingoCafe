@@ -189,8 +189,7 @@ const CourseDetailPage = () => {
     <AppLayout
       header={
         <MainHeader
-          headline={detail?.title ?? ""}
-          subtitle=""
+          headline=""
           rightSlot={<AuthStatus />}
         />
       }
@@ -211,12 +210,10 @@ const CourseDetailPage = () => {
                 </div>
               );
             })}
-            {detail.images.length <= visibleCount
-              ? null
-              : null}
           </div>
         ) : null}
         <div className={styles.titleBlock}>
+          {detail?.title ? <h1 className={styles.title}>{detail.title}</h1> : null}
           <div className={styles.meta}>
             {detail?.authorAvatar ? (
               <img className={styles.authorAvatar} src={detail.authorAvatar} alt={detail.authorNickname} />
