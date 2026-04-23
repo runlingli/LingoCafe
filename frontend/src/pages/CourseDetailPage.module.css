@@ -84,10 +84,6 @@
 }
 
 .body {
-  background: var(--surface);
-  border: 1px solid var(--rule-soft);
-  border-radius: 5px;
-  padding: 24px 28px;
   line-height: 1.7;
   color: var(--ink-2);
   font-family: var(--serif);
